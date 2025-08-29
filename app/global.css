@@ -1,9 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --primary-font: "simplon";
+  --secondary-font: "bebasNeue";
+  --text-primary: #1D1616;
+  --text-secondary: #00827B;
+}
+
+.dark {
+  --text-primary: #FFFFFF;
+  --text-secondary: #1A0000;
+}
+
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
+}
+
+@font-face {
+  font-family: "simplon";
+  src: url("../assets/fonts/SimplonNorm-Regular.otf");
+  font-display:swap;
+  font-weight: 400; 
+}
+
+@font-face {
+  font-family: "bebasNeue";
+  src: url("../assets/fonts/BebasNeue-Regular.otf");
+  font-display:swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.primaryFontBolder{
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+.primaryFontNormal{
+  font-family: var(--primary-font);
+  font-weight: 400;
+}
+.primaryFontBold{
+  font-family: var(--primary-font);
+  font-weight: 700;
+}
+
+.secondaryBoldWeight{
+  font-family: var(--secondary-font);
+  font-weight: 700;
+}
+.secondaryNormalWeight{
+  font-family: var(--secondary-font);
+  font-weight: 400;
+}
+.secondaryFontBolder{
+  font-family: var(--secondary-font);
+  font-weight: 600;
 }
