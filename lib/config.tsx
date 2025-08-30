@@ -1,0 +1,1 @@
+export const HOME_PAGE_LOGO ="/images/home-page/logo.png";
