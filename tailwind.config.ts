@@ -11,6 +11,9 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-poppins)", "sans-serif"],
       },
+     colors: {
+      'gray-primary-100': 'var(--bg-color-primary)',
+     } 
     },
   },
   plugins: [],

@@ -1,1 +1,1 @@
-export const HOME_PAGE_LOGO ="/images/home-page/logo.png";
+export const HOME_PAGE_LOGO ="/images/home-page/home-logo.svg";
