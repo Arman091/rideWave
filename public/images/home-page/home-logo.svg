@@ -1,0 +1,45 @@
+<!-- ride-wave-full.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="96" viewBox="0 0 420 96" role="img" aria-labelledby="rwTitle rwDesc">
+  <title id="rwTitle">Ride Wave logo</title>
+  <desc id="rwDesc">A stylized car riding on a wave next to the text "ride wave".</desc>
+
+  <!-- background is transparent -->
+  <g transform="translate(8,8)">
+
+    <!-- Wave base -->
+    <path d="M0 48 C28 48 28 28 56 28 C84 28 84 48 112 48 C140 48 140 28 168 28 C196 28 196 48 224 48"
+          fill="none" stroke="#06b6d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Car body -->
+    <g transform="translate(72,6)">
+      <!-- roof + body -->
+      <path d="M0 30 L18 14 L46 14 L64 30 L64 36 L0 36 Z"
+            fill="#0f172a" opacity="0.95" />
+      <!-- window -->
+      <path d="M20 16 L40 16 L50 28 L14 28 Z" fill="#ffffff" opacity="0.18" />
+      <!-- wheels -->
+      <circle cx="18" cy="40" r="6" fill="#0f172a" />
+      <circle cx="50" cy="40" r="6" fill="#0f172a" />
+      <!-- small wheel highlights -->
+      <circle cx="18" cy="40" r="2.2" fill="#ffffff" opacity="0.25" />
+      <circle cx="50" cy="40" r="2.2" fill="#ffffff" opacity="0.25" />
+    </g>
+
+    <!-- Wave accent under car -->
+    <path d="M28 54 C60 54 60 38 92 38 C124 38 124 54 156 54"
+          fill="none" stroke="#0891b2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+    <!-- Wordmark -->
+    <g transform="translate(260,12)">
+      <text x="0" y="14" font-family="Inter, Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif"
+            font-weight="700" font-size="32" fill="#0f172a" letter-spacing="-0.5">
+        ride
+      </text>
+      <text x="0" y="44" font-family="Inter, Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif"
+            font-weight="700" font-size="32" fill="#06b6d4" letter-spacing="-0.5">
+        wave
+      </text>
+    </g>
+
+  </g>
+</svg>
