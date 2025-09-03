@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navlinks from "./Navlinks";
+
 import { HOME_PAGE_LOGO } from "@/lib/config";
 interface HeaderProps {
   showNavbar: boolean;
@@ -11,6 +12,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ showNavbar, isHomepage }) => {
   const [isLoginSignupModalOpen, setIsLoginSignupModalOpen] = useState(false);
+ 
 
   return (
     <header
