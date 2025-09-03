@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { useLang } from "@/shared/hooks/language";
 interface NavLinkProps {
   isMobileview: boolean;
   isHomepage?: boolean;
@@ -16,13 +16,14 @@ const Navlinks: React.FC<NavLinkProps> = ({
   changeHeaderColor,
 }) => {
   const pathname = usePathname();
+   const [locale, currentLanguage] = useLang();
 
   const routes = [
     { path: "/", label: "Home" },
-    { path: "/drivers", label: "Drivers" },
-    { path: "/riders", label: "Riders" },
-    { path: "/pricing", label: "Pricing" },
-    { path: "/about-us", label: "About Us" },
+    { path: "/drivers", label: locale?.drivers },
+    { path: "/riders", label: locale?.riders },
+    { path: "/pricing", label: locale?.pricing },
+    { path: "/about-us", label: locale?.about },
   ];
 
   return (
