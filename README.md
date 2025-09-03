@@ -1,5 +1,5 @@
 # rideWave
-### My first project after 2+ years experience to summarize my skills
+### My project after 2+ years experience to summarize my skills
 
 ## Documentation
 - [Project Docs Basic Setup](./docs/setup.md)
@@ -18,6 +18,11 @@
 - **Form Validation**: Formik and Yup
 - **Notifications**: FCM(Firebase), Novu with Backend
 - **Others**: react-select,day.js,toast
+- **CI/CD & Pipeline**:GitHub Actions,,ArgoCD
+- **Containerization**: Docker  
+- **Unit Testing**: Jest
+- **Reactive programming && Real-Time Communication**:( WebSockets, MQTT)
+
 
 ---
 
@@ -26,9 +31,7 @@
 - **Runtime**: Node.js  
 - **Framework Options**: Express.js / NestJS  
 
-
 ---
-
 ## Database
 - **Options**: PostgreSQL / MongoDB  
 - **Use Cases**:  
@@ -49,7 +52,7 @@
 ## Real-Time Communication
 - **Options**:  
   - WebSockets (for chat, notifications)  
-  - MQTT (lightweight messaging)  
+  - MQTT   
 
 ---
 
@@ -67,24 +70,8 @@
   - SendGrid  
 - **Features**:  
   - Email templates  
-  - Redirection & verification flows  
-
----
-
-## Testing
-- **Unit Testing**: Jest  
-- **Component Testing**: React Testing Library   
-
----
-
-## CI/CD & Deployment
-- **Containerization**: Docker  
-- **CI/CD Pipelines**: GitHub Actions  
-- **Deployment Options**:  
-- Vercel (Frontend hosting)    
-
----
-
+  - Redirection & verification flows
+  - 
 ## Documentation
 - **Format**: Markdown-based
 
