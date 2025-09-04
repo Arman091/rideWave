@@ -3,6 +3,7 @@
 
 ## Documentation
 - [Project Docs Basic Setup](./docs/setup.md)
+- [cva (class varaince authority)](./docs/cva.md)
 
 # Project Architecture
 
@@ -18,10 +19,10 @@
 - **Form Validation**: Formik and Yup
 - **Notifications**: FCM(Firebase), Novu with Backend
 - **Others**: react-select,day.js,toast
-- **CI/CD & Pipeline**:GitHub Actions,,ArgoCD
+- **CI/CD & Pipeline**:GitHub Actions,ArgoCD
 - **Containerization**: Docker  
 - **Unit Testing**: Jest
-- **Reactive programming && Real-Time Communication**:( WebSockets, MQTT)
+- **Reactive programming & Real-Time Communication**:( WebSockets, MQTT)
 
 
 ---
@@ -75,21 +76,4 @@
 ## Documentation
 - **Format**: Markdown-based
 
----
-
-## High-Level Architecture Flow
-1. **Frontend (Next.js + TypeScript + Zustand + TanStack + Tailwind)**  
-   ⬇️ API calls via fetch/axios  
-2. **Backend (Express/NestJS / Strapi)**  
-   ⬇️ JWT auth, token refresh, session handling  
-3. **Database (PostgreSQL/MongoDB)**  
-   ⬇️ Store users, relationships, sessions  
-4. **Storage (AWS S3)** for files  
-5. **Email (Nodemailer/SendGrid)** for notifications  
-6. **Real-time (WebSockets/MQTT)** for chat/updates  
-7. **Testing & CI/CD (Jest, Cypress, GitHub Actions, Docker)**  
-8. **Deployment (Vercel/Render/Netlify)**  
-9. **Docs (Markdown)**  
-
----
 
