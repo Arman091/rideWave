@@ -10,15 +10,31 @@
   --text-primary: #1D1616;
   --text-secondary: #00827B;
   --bg-color-primary:#f7f7f7;
+  --button-primary-bg: #00827B;
+  --button-primary-text: #FFFFFF;
+  --background-secondary: #F5F6F8;
 }
 
 .dark {
   --text-primary: #FFFFFF;
   --text-secondary: #1A0000;
+  --button-primary-bg: #FED109;
+  --button-primary-text: #1A0000;
+  --background-secondary: #242A37;
 }
 
 html {
   font-family: var(--primary-font);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-secondary))
+    )
+    rgb(var(--background-secondary));
 }
 
 @font-face {

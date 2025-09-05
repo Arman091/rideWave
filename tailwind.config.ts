@@ -13,6 +13,8 @@ const config: Config = {
       },
      colors: {
       'gray-primary-100': 'var(--bg-color-primary)',
+      'custom-button-primary-bg': "var(--button-primary-bg)",
+      'custom-button-primary-text': "var(--button-primary-text)",
      } 
     },
   },

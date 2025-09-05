@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/button";
 import { useLang } from "@/shared/hooks/language";
 interface NavLinkProps {
   isMobileview: boolean;
@@ -27,9 +28,11 @@ const Navlinks: React.FC<NavLinkProps> = ({
   ];
 
   return (
-    <ul className="flex flex-col sm:flex-row gap-x-12 items-center">
+    <>
+    <ul className="flex flex-col sm:flex-row gap-x-12 items-center ">
+      <div className="hidden sm:flex gap-x-12">
       {routes.map((route) => (
-        <li key={route.path}>
+        <li key={route.path} className="nav-link  primaryFontBold">
           <Link
             href={route.path}
             className={`nav-link ${
@@ -46,12 +49,34 @@ const Navlinks: React.FC<NavLinkProps> = ({
           </Link>
         </li>
       ))}
-
-      {/* Mobile-only Login Button (example) */}
-      <li className="block sm:hidden">
-        <button onClick={() => setIsModalOpen(true)}>Login</button>
-      </li>
+      </div>
+      <Button
+        variant="default"
+       >
+       {locale?.login}
+      </Button>
     </ul>
+    <style jsx>
+      {
+      `
+        .nav-link:hover {
+          animation: displace 0.5s ease;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+          animation-delay: 0.2s;
+        }
+       .nav-link{
+          text-align: left;
+          font-size: 15px;
+          line-height: 31px;
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+          opacity: 1;
+       }
+      `
+      }
+    </style>
+    </>
   );
 };
 

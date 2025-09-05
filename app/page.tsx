@@ -5,7 +5,7 @@ import Navlinks from "@/components/header/Navlinks";
 
   }
   return (
-    <div className="flex justify-center bg-gray-primary-100">
+  <div className="flex justify-center shadow-md ">
    <Header showNavbar={true}/>
    {/* <Navlinks isMobileview={true} setIsModalOpen={setIsModalOpen} /> */}
    </div>

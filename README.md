@@ -3,7 +3,7 @@
 
 ## Documentation
 - [Project Docs Basic Setup](./docs/setup.md)
-- [cva (class varaince authority)](./docs/cva.md)
+- [cva (class variance authority)](./docs/cva.md)
 
 # Project Architecture
 
