@@ -3,7 +3,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navlinks from "./Navlinks";
-
 import { HOME_PAGE_LOGO } from "@/lib/config";
 interface HeaderProps {
   showNavbar: boolean;
@@ -33,16 +32,16 @@ const Header: React.FC<HeaderProps> = ({ showNavbar, isHomepage }) => {
       </Link>
 
       {/* Navlinks */}
-      {showNavbar && (
-        <div className="flex items-center gap-6 w-[60%] justify-end ">
+      <div className="flex items-center w-3/4 justify-end ">
+       {showNavbar && (
           <Navlinks
             isHomepage={isHomepage}
             isMobileview={false}
             changeHeaderColor={false}
             setIsModalOpen={setIsLoginSignupModalOpen}
           />
-        </div>
-      )}
+        )}  
+       </div> 
     </header>
   );
 };

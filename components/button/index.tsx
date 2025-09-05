@@ -5,17 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 type IconPosition = "left" | "right";
 interface IconProps {
-  icon?: React.ReactNode;
-  iconPosition?: IconPosition;
-  rightIcon?: React.ReactNode;
-  leftIcon?: React.ReactNode;
-  iconClassName?: string;
-  tooltip?: any;
-  tooltipClassName?: string;
+    icon?: React.ReactNode;
+    iconPosition?: IconPosition;
+    rightIcon?: React.ReactNode;
+    leftIcon?: React.ReactNode;
+    iconClassName?: string;
+    tooltip?: any;
+    tooltipClassName?: string;
 }
 
 const buttonVariants = cva(
-    "inline-flex items-center px-4 justify-center primaryFontBoldWeight whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:bg-custom-invoice-button-disabled disabled:text-custom-text-input-placeholder-color disabled:border-custom-invoice-button-disabled",
+    "inline-flex items-center px-4 justify-center primaryFontBold whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:bg-custom-invoice-button-disabled disabled:text-custom-text-input-placeholder-color disabled:border-custom-invoice-button-disabled",
     {
         variants: {
             variant: {
@@ -39,7 +39,7 @@ const buttonVariants = cva(
                 icon: "h-9 w-9",
                 none: "p-0",
             },
-             iconSpacing: {
+            iconSpacing: {
                 default: "gap-2",
                 sm: "gap-1",
                 lg: "gap-3",
@@ -60,9 +60,73 @@ const buttonVariants = cva(
     })
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>,
     IconProps {
-  asChild?: boolean;
+    asChild?: boolean;
 }
 
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant,
+      activeVariant,
+      size,
+      iconSpacing,
+      asChild = false,
+      icon,
+      iconPosition = "left",
+      leftIcon,
+      rightIcon,
+      iconClassName,
+      tooltip,
+      tooltipClassName,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp ="button";
+
+    const renderIcon = (iconElement: React.ReactNode) => {
+      return (
+        iconElement && (
+          <span
+            className={`
+              inline-flex shrink-0
+              ${size === "sm" ? "size-3" : "size-4"}
+              ${iconClassName ?? ""}
+            `}
+          >
+            {iconElement}
+          </span>
+        )
+      );
+    };
+
+   const ButtonContent=(
+      <Comp
+        className={buttonVariants({
+          variant,
+          activeVariant,
+          size,
+          iconSpacing,
+          className,
+        })}
+        ref={ref}
+        {...props}
+      >
+        {(leftIcon || (icon && iconPosition === "left")) &&
+          renderIcon(leftIcon || icon)}
+        {children}
+        {(rightIcon || (icon && iconPosition === "right")) &&
+          renderIcon(rightIcon || icon)}
+      </Comp>
+    );
+    return ButtonContent
+  }
+);
+
+Button.displayName = "Button";
+export { Button, buttonVariants };
