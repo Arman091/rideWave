@@ -15,12 +15,12 @@ const Header: React.FC<HeaderProps> = ({ showNavbar, isHomepage }) => {
 
   return (
     <header
-      className={`header-section flex justify-center w-full py-[8px] top-0 z-[1000] bg-custom-white dark:bg-custom-darkblue  items-center h-[74px] px-[20px] ${
+      className={`header-section flex justify-center w-full sm:w-11/12 mx-auto py-[8px] top-0 z-[1000] bg-custom-white dark:bg-custom-darkblue  items-center h-[74px] px-[20px] ${
         isHomepage ? "absolute" : ""
       }`}
     >
       {/* Logo */}
-      <Link href="/" className="flex items-center">
+      <Link href="/" className="flex items-center ">
         <Image
           src={HOME_PAGE_LOGO}
           width={180}

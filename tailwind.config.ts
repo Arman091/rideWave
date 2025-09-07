@@ -18,7 +18,15 @@ const config: Config = {
       'custom-button-primary-text': "var(--button-primary-text)",
       'custom-yellow-100':"var(--yellow_color)",
       'text-tertairy':"var(--text-tertiary)"
-     } 
+     },
+      fontSize: {
+      xs: "var(--font-size-xs)",
+      sm: "var(--font-size-sm)",
+      base: "var(--font-size-base)",
+      lg: "var(--font-size-lg)",
+      xl: "var(--font-size-xl)",
+      "h1": "var(--font-size-h1)",
+    } 
     },
   },
   plugins: [],
