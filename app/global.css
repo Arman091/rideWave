@@ -7,8 +7,17 @@
 :root{
   --primary-font: "simplon";
   --secondary-font: "bebasNeue";
+   --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.5rem;   /* 24px */
+  --font-size-h1:3.75rem;  /* 60px*/
+  /* color variables */
   --text-primary: #1D1616;
   --text-secondary: #00827B;
+  --text-tertiary:#F5F6F8;
+  --yellow_color: #FFCD00;
   --bg-color-primary:#f7f7f7;
   --button-primary-bg: #00827B;
   --button-primary-text: #FFFFFF;
@@ -18,6 +27,7 @@
 .dark {
   --text-primary: #FFFFFF;
   --text-secondary: #1A0000;
+  --text-tertiary:#F5F6F8;
   --button-primary-bg: #FED109;
   --button-primary-text: #1A0000;
   --background-secondary: #242A37;

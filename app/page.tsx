@@ -1,14 +1,26 @@
 import Header from "@/components/header";
-import Navlinks from "@/components/header/Navlinks";
- function Home() {
-  function setIsModalOpen(){
+import HeroSection from "@/containers/homepage/herosection";
+import FeaturesSection from "@/containers/homepage/fetaures";
+import TestimonialsSection from "@/containers/homepage/testimonials";
+function Home() {
+  function setIsModalOpen() {
 
   }
   return (
-  <div className="flex justify-center shadow-md ">
-   <Header showNavbar={true}/>
-   {/* <Navlinks isMobileview={true} setIsModalOpen={setIsModalOpen} /> */}
-   </div>
+    <div>
+      <div className="flex justify-center shadow-md ">
+        <Header showNavbar={true} />
+      </div>
+      <div>
+       <HeroSection />
+      </div>
+      <div>
+        <FeaturesSection/>
+      </div>
+     <div>
+      {/* <TestimonialsSection/> */}
+     </div>
+    </div>
   )
 }
 export default Home
