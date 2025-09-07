@@ -5,6 +5,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./containers/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
@@ -15,6 +16,8 @@ const config: Config = {
       'gray-primary-100': 'var(--bg-color-primary)',
       'custom-button-primary-bg': "var(--button-primary-bg)",
       'custom-button-primary-text': "var(--button-primary-text)",
+      'custom-yellow-100':"var(--yellow_color)",
+      'text-tertairy':"var(--text-tertiary)"
      } 
     },
   },
