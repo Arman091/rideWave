@@ -18,7 +18,7 @@ function Home() {
         <FeaturesSection/>
       </div>
      <div>
-      {/* <TestimonialsSection/> */}
+      <TestimonialsSection/>
      </div>
     </div>
   )
