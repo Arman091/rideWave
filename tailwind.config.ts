@@ -17,7 +17,9 @@ const config: Config = {
       'custom-button-primary-bg': "var(--button-primary-bg)",
       'custom-button-primary-text': "var(--button-primary-text)",
       'custom-yellow-100':"var(--yellow_color)",
-      'text-tertairy':"var(--text-tertiary)"
+      'text-tertairy':"var(--text-tertiary)",
+      'background-secondary':"var(--background-secondary)",
+      'custom-text-gray':"var(--text-gray)"
      },
       fontSize: {
       xs: "var(--font-size-xs)",

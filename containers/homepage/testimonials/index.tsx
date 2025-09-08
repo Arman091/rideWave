@@ -1,22 +1,24 @@
 // data/testimonials.ts
+import Image from "next/image";
+import {TESTIMONY_1,TESTIMONY_2} from "@/lib/config"
 export const testimonials = [
   {
-    image: "/images/testimonials/user1.jpg",
-    name: "Amit Sharma",
+    image: TESTIMONY_1,
+    name: "peter",
     description:
       "RideWave made my daily deliveries smoother and faster. I can track everything in one place.",
     companyName: "Delivery Driver",
   },
   {
-    image: "/images/testimonials/user2.jpg",
-    name: "Priya Verma",
+    image: TESTIMONY_2,
+    name: "john",
     description:
       "Booking a ride is super quick, and the fares are transparent. Love the service!",
     companyName: "Passenger",
   },
   {
-    image: "/images/testimonials/user3.jpg",
-    name: "Rakesh Patel",
+    image: TESTIMONY_1,
+    name: "matthew",
     description:
       "Managing my shop’s logistics has never been this easy. Highly recommend RideWave.",
     companyName: "Shop Owner",
@@ -26,9 +28,9 @@ export const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-gray-primary-100 py-16">
-      <div className="container mx-auto px-6">
-        <h2 className="text-center text-3xl secondaryBoldWeight text-text-secondary mb-12">
+    <section className="bg-background-secondary py-16 ">
+      <div className="container px-6 w-full sm:w-[80%] mx-auto">
+        <h2 className="text-center text-h1 secondaryBoldWeight text-text-secondary mb-12">
           What Our Users Say
         </h2>
 
@@ -36,23 +38,31 @@ export default function TestimonialsSection() {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl shadow-md p-6 flex flex-col"
+              className="flex flex-col items-center bg-white rounded-2xl shadow-md p-6 text-center"
             >
-              <p className="text-text-primary mb-4">{item.description}</p>
-              <div className="flex items-center mt-auto">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <p className="font-bold text-text-secondary">{item.name}</p>
-                  <p className="text-sm text-text-tertairy">
-                    {item.companyName}
-                  </p>
-                </div>
-              </div>
+              {/* Avatar / Image */}
+              <Image
+                src={item.image}
+                width={120}
+                height={200}
+                alt={item.name}
+                className="w-24 h-24 rounded-full object-cover mb-4"
+              />
+
+              {/* Name */}
+              <h3 className="primaryFontBold capitalize text-text-secondary text-lg mb-2 tracking-wider">
+                {item.name}
+              </h3>
+
+              {/* Company */}
+              <p className="text-sm text-custom-text-gray mb-4">({item.companyName})</p>
+
+              {/* Testimonial text */}
+              <p className="primaryFontNormal text-text-primary leading-relaxed">
+                {item.description}
+              </p>
             </div>
+
           ))}
         </div>
       </div>
