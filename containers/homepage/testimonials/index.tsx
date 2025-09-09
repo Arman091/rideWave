@@ -50,15 +50,15 @@ export default function TestimonialsSection() {
               />
 
               {/* Name */}
-              <h3 className="primaryFontBold capitalize text-text-secondary text-lg mb-2 tracking-wider">
+              <h3 className="primaryFontBold capitalize text-text-secondary text-xl mb-2 tracking-wider">
                 {item.name}
               </h3>
 
               {/* Company */}
-              <p className="text-sm text-custom-text-gray mb-4">({item.companyName})</p>
+              <p className="text-custom-button-primary-bg text-base mb-4">({item.companyName})</p>
 
               {/* Testimonial text */}
-              <p className="primaryFontNormal text-text-primary leading-relaxed">
+              <p className="primaryFontNormal text-gray-600 text-lg leading-relaxed">
                 {item.description}
               </p>
             </div>

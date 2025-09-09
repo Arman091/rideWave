@@ -64,6 +64,7 @@ const Navlinks: React.FC<NavLinkProps> = ({
           animation-iteration-count: 1;
           animation-fill-mode: forwards;
           animation-delay: 0.2s;
+          color:var(--button-primary-bg);
         }
        .nav-link{
           text-align: left;

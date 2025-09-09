@@ -15,7 +15,7 @@ export default function HeroSection() {
           <h2 className="text-2xl font-semibold text-text-primary secondaryBoldWeight tracking-wide">
             The #1 Logistics & Ride Sharing Tool
           </h2>
-          <p className="text-lg text-text-tertairy primaryFontNormal">
+          <p className="text-lg text-text-tertiary primaryFontNormal">
             At <span className="font-semibold">RideWave</span>, we provide a
             powerful and reliable platform designed to simplify logistics and
             ride booking. Whether you are a customer, driver, or vehicle owner,
