@@ -1,13 +1,20 @@
 
+import React from "react";
 import "./global.css";
-import { PropsWithChildren } from "react";
-import Footer from "@/components/footer";
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function RootLayout({
+  children,
+  modal, 
+}: Readonly<{
+  children:React.ReactNode,
+  modal:React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <body className="min-h-screen">{children}</body>
-      <Footer/>
+      <body className="min-h-screen">
+        {children}
+        {modal}
+      </body>
     </html>
   );
 }
