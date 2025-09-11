@@ -17,8 +17,7 @@ const Navlinks: React.FC<NavLinkProps> = ({
   changeHeaderColor,
 }) => {
   const pathname = usePathname();
-   const [locale, currentLanguage] = useLang();
-
+  const [locale, currentLanguage] = useLang();
   const routes = [
     { path: "/", label: "Home" },
     { path: "/drivers", label: locale?.drivers },
@@ -53,7 +52,9 @@ const Navlinks: React.FC<NavLinkProps> = ({
       <Button
         variant="default"
        >
+      <Link href="/login">
        {locale?.login}
+      </Link> 
       </Button>
     </ul>
     <style jsx>
@@ -74,6 +75,9 @@ const Navlinks: React.FC<NavLinkProps> = ({
           text-transform: uppercase;
           opacity: 1;
        }
+       .activeLink{
+        color:var(--button-primary-bg)
+       }   
       `
       }
     </style>
