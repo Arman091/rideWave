@@ -3,5 +3,19 @@
   "riders":"Riders",
   "pricing":"Pricing",
   "about": "About Us",
-  "login":" login"
+  "login":" login",
+  "already_registered": "Already registered user?",
+  "new_user": "New to RideWave?",
+  "email_placeholder": "Enter your email",
+  "phone_placeholder": "Enter your phone number",
+  "password_placeholder": "Enter your password",
+  "login_button": "Login",
+  "signup_button": "Signup",
+  "invalid_email": "Please enter a valid email address",
+  "required_email": "Email is required",
+  "required_phone": "Phone number is required",
+  "required_password": "Password is required",
+  "invalid_password": "Password must be at least 6 characters",
+  "login_to":"login to ride Wave",
+  "signup":"signup"
 }

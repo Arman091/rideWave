@@ -90,3 +90,11 @@ body {
   font-family: var(--secondary-font);
   font-weight: 600;
 }
+
+.mdl_cls_btn{
+  background: white;
+  border-radius: 4px;
+  padding: 4px;
+  right: -2.15rem;
+  top:0px;
+}
