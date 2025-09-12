@@ -6,14 +6,12 @@ import { useLang } from "@/shared/hooks/language";
 interface NavLinkProps {
   isMobileview: boolean;
   isHomepage?: boolean;
-  setIsModalOpen: (open: boolean) => void;
   changeHeaderColor?: boolean;
 }
 
 const Navlinks: React.FC<NavLinkProps> = ({
   isMobileview,
   isHomepage,
-  setIsModalOpen,
   changeHeaderColor,
 }) => {
   const pathname = usePathname();
@@ -49,13 +47,16 @@ const Navlinks: React.FC<NavLinkProps> = ({
         </li>
       ))}
       </div>
-      <Button
+      <div className="flex gap-2">
+        <Button 
         variant="default"
-       >
-      <Link href="/login">
-       {locale?.login}
-      </Link> 
-      </Button>
+        className="py-0 h-[40px]"
+        >
+          <Link href="/login">
+            {locale?.login}
+          </Link>
+        </Button>
+      </div>
     </ul>
     <style jsx>
       {

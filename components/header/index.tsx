@@ -10,12 +10,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ showNavbar, isHomepage }) => {
-  const [isLoginSignupModalOpen, setIsLoginSignupModalOpen] = useState(false);
  
 
   return (
     <header
-      className={`header-section flex justify-center w-full sm:w-11/12 mx-auto py-[8px] top-0 z-[1000] bg-custom-white dark:bg-custom-darkblue  items-center h-[74px] px-[20px] ${
+      className={`header-section flex justify-center w-full sm:w-11/12 mx-auto py-[8px] top-0 z-[99] bg-custom-white dark:bg-custom-darkblue  items-center h-[74px] px-[20px] ${
         isHomepage ? "absolute" : ""
       }`}
     >
@@ -38,7 +37,6 @@ const Header: React.FC<HeaderProps> = ({ showNavbar, isHomepage }) => {
             isHomepage={isHomepage}
             isMobileview={false}
             changeHeaderColor={false}
-            setIsModalOpen={setIsLoginSignupModalOpen}
           />
         )}  
        </div> 

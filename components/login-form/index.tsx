@@ -2,33 +2,30 @@
 import Input from "@/components/input";
 import { useState } from "react";
 import { Formik, Form } from "formik";
-import * as Yup from "yup"; // your reusable input component
+import * as Yup from "yup";
 import { useLang } from "@/shared/hooks/language";
 import { Button } from "../button";
 
 interface LoginFormProps {
-  type?: "login" | "signup";
-  setIsLogin:Function;
-  isLogin:Boolean;
+  setIsLogin: (isLogin: boolean) => void;
 }
 
-const LoginForm = ({ type = "login",setIsLogin,isLogin }: LoginFormProps) => {
+const LoginForm = ({ setIsLogin }: LoginFormProps) => {
   const [loginWithPhone, setLoginWithPhone] = useState(false);
-  const [isSignup, setIsSignup] = useState<boolean>(false)
   const [locale] = useLang();
 
   const validationSchema = Yup.object().shape({
     email: !loginWithPhone
       ? Yup.string()
-        .email(locale.invalid_email)
-        .required(locale.required_email)
+          .email(locale.invalid_email || "Invalid email")
+          .required(locale.required_email || "Email is required")
       : Yup.string(),
     phone: loginWithPhone
-      ? Yup.string().required(locale.required_phone)
+      ? Yup.string().required(locale.required_phone || "Phone is required")
       : Yup.string(),
     password: Yup.string()
-      .required(locale.required_password)
-      .min(6, locale.invalid_password),
+      .required(locale.required_password || "Password is required")
+      .min(6, locale.invalid_password || "Password must be at least 6 characters"),
   });
 
   return (
@@ -37,59 +34,65 @@ const LoginForm = ({ type = "login",setIsLogin,isLogin }: LoginFormProps) => {
         initialValues={{ email: "", phone: "", password: "" }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log("Form Submitted:", values);
+          console.log("Login Form Submitted:", values);
         }}
       >
         {({ errors, touched }) => (
           <Form className="flex flex-col gap-4">
-            {/* Toggle login with email/phone */}
-            {!isSignup ? (
-              <>
-                {!loginWithPhone && (
-                  <div>
-                    <Input
-                      name="email"
-                      placeholder={locale.email_placeholder}
-                      error={touched.email && errors.email ? errors.email : ""}
-                    />
-                    <Input
-                      name="password"
-                      type="password"
-                      placeholder={locale.password_placeholder}
-                      error={touched.password && errors.password ? errors.password : ""}
-                    />
-                  </div>
-                )}
-                {loginWithPhone && (
-                  <Input
-                    name="phone"
-                    placeholder={locale.phone_placeholder}
-                    error={touched.phone && errors.phone ? errors.phone : ""}
-                  />
-                )}
-                <Button>
-                  {type === "login" ? locale.login_button : locale.signup_button}
-                </Button>
-                <Button variant="outline">
-                  <div className="flex justify-between items-center text-sm">
-                    <span onClick={() => setLoginWithPhone(!loginWithPhone)}>
-                      {loginWithPhone ? "Login with Email" : "Login with Phone"}
-                    </span>
-                  </div>
-                </Button>
-              </>
-            ) : (
+            {/* Email/Phone login fields */}
+            {!loginWithPhone && (
               <div>
-                hello
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder={locale.email_placeholder || "Email Address"}
+                  error={touched.email && errors.email ? errors.email : ""}
+                />
+                <Input
+                  name="password"
+                  type="password"
+                  placeholder={locale.password_placeholder || "Password"}
+                  error={touched.password && errors.password ? errors.password : ""}
+                />
               </div>
             )}
+            
+            {loginWithPhone && (
+              <Input
+                name="phone"
+                type="tel"
+                placeholder={locale.phone_placeholder || "Phone Number"}
+                error={touched.phone && errors.phone ? errors.phone : ""}
+              />
+            )}
 
+            {/* Submit button */}
+            <Button type="submit">
+              {locale.login_button || "Login"}
+            </Button>
+
+            {/* Toggle between email/phone */}
+            <Button 
+              type="button" 
+              variant="outline"
+              onClick={() => setLoginWithPhone(!loginWithPhone)}
+            >
+              <div className="flex justify-between items-center text-sm">
+                <span>
+                  {loginWithPhone ? "Login with Email" : "Login with Phone"}
+                </span>
+              </div>
+            </Button>
+
+            {/* Switch to signup */}
             <p className="text-sm text-center mt-2">
-              {!isLogin ? <p className="text-base"> 
-                {locale.new_user} 
-                <span className="font-bold text-lg cursor-pointer px-2" onClick={()=>{setIsLogin(false)}}>{locale?.signup}</span></p> 
-                : 
-                <p>{locale.already_registered}<span className=" px-2 font-bold text-lg cursor-pointer" onClick={()=>{setIsLogin(true)}}>{locale?.login}</span></p>}
+              {locale.new_user || "New user?"}{" "}
+              <span 
+                className="font-bold text-lg cursor-pointer text-custom-button-primary-bg hover:underline px-2" 
+                onClick={() => setIsLogin(false)}
+              >
+                {locale?.signup || "Sign up"}
+              </span>
             </p>
           </Form>
         )}

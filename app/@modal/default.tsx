@@ -1,3 +1,3 @@
-export default function DefaultModal() {
-  return null; // so the slot is optional
+export default function Default() {
+  return null;
 }
