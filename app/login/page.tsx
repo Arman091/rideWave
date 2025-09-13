@@ -17,7 +17,7 @@ export default function LoginPage() {
       </Link>
 
       {/* Login form */}
-      <LoginForm />
+      <LoginForm setIsLogin={()=>{}} />
       </div>
     </main>
   );

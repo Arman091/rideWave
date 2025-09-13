@@ -5,6 +5,9 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useLang } from "@/shared/hooks/language";
 import { Button } from "../button";
+import PhoneInput from "../mobile-input";
+import CustomPhoneInput from "../mobile-input";
+import { DEFAULT_COUNTRY_CODE } from "@/lib/config";
 
 interface LoginFormProps {
   setIsLogin: (isLogin: boolean) => void;
@@ -29,7 +32,7 @@ const LoginForm = ({ setIsLogin }: LoginFormProps) => {
   });
 
   return (
-    <div className="mx-auto p-6 border rounded-2xl shadow-sm">
+    <div className={`mx-auto p-6 border rounded-2xl shadow-sm min-w-[350px]`}>
       <Formik
         initialValues={{ email: "", phone: "", password: "" }}
         validationSchema={validationSchema}
@@ -37,7 +40,7 @@ const LoginForm = ({ setIsLogin }: LoginFormProps) => {
           console.log("Login Form Submitted:", values);
         }}
       >
-        {({ errors, touched }) => (
+        {({ values, errors, touched ,setFieldValue }) => (
           <Form className="flex flex-col gap-4">
             {/* Email/Phone login fields */}
             {!loginWithPhone && (
@@ -58,12 +61,15 @@ const LoginForm = ({ setIsLogin }: LoginFormProps) => {
             )}
             
             {loginWithPhone && (
-              <Input
-                name="phone"
-                type="tel"
-                placeholder={locale.phone_placeholder || "Phone Number"}
-                error={touched.phone && errors.phone ? errors.phone : ""}
-              />
+              <div>
+                <CustomPhoneInput
+                  value={values.phone}
+                  defaultCountry={DEFAULT_COUNTRY_CODE}
+                  inputClass="my-2"
+                  // error={touched.phone && errors.phone ? errors.phone : ""}
+                  onChange={(value)=>{console.log(value,"abcd")}}
+                />      
+              </div>
             )}
 
             {/* Submit button */}
