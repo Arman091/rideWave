@@ -33,10 +33,10 @@ export default function SignupModal() {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      className=" bg-black/50 flex items-center justify-center z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white p-8 pt-4 min-w-[450px] max-w-md w-full mx-4 rounded-lg shadow-lg relative">
+      <div className="bg-white  p-8 pt-4 min-w-[450px] max-w-md w-full mx-4 rounded-lg shadow-lg relative">
         <h1 className="px-4 mb-4 rounded-md mx-auto w-fit text-[34px] text-center font-bold text-custom-button-primary-bg tracking-wider secondaryBoldWeight capitalize">
           {isLogin ? locale?.login : locale?.signup}
         </h1>

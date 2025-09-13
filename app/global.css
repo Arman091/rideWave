@@ -98,3 +98,22 @@ body {
   right: -2.15rem;
   top:0px;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-custom-button-primary-bg rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-custom-button-primary-bg;
+}
