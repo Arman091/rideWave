@@ -1,56 +1,37 @@
-export const getCookieJS = (key = "", req:any = null) => {
-    let cookieState;
-    let valueToReturn = null;
-    if (req?.headers?.cookie) cookieState = req.headers?.cookie;
-    if (process.browser && document) cookieState = document.cookie;
-    if (cookieState) {
-        const rawCookie = cookieState.split(";").find((item:any) => item.trim().startsWith(`${key}=`));
-        if (rawCookie) valueToReturn = rawCookie.split("=")[1];
-    }
-    return valueToReturn;
-}
+// utils/storage.ts
 
-export const setCookieJS = (key = "", value:any, expireInDays = 1) => {
-    if (process.browser && document) {
-        const now = new Date();
-        const expireTime = now.getTime() + (expireInDays*24*60*60*1000); // 24 hours
-        now.setTime(expireTime);
-        document.cookie = `${key}=${value}; SameSite=strict; Secure; expires=${now.toUTCString()}; path=/;`;
-      } else {
-        console.log("setCookie failed");
-      }
-}
+// ---- Cookie ----
+export const getCookie = (name: string): string | null => {
+  if (typeof window === "undefined") return null;
 
-export const clearAllCookies = () => document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+  const match = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${name}=`));
 
-export const setLocalStorageData = (key = "", value:any) => {
-  if (process.browser && document) {
-      localStorage.setItem(key, value);
-    } else {
-      console.log("set local storage  failed");
-    }
-}
+  return match ? decodeURIComponent(match.split("=")[1]) : null;
+};
 
-export const getLocalStorageData = (key = "") => {
-  if (process.browser && document) {
-      return localStorage.getItem(key);
-    } else {
-      console.log("get local storage  failed");
-    }
-}
+export const setCookie = (
+  name: string,
+  value: string,
+  days = 1
+): void => {
+  if (typeof window === "undefined") return;
 
-export const clearAllLocalStorage = (key = "") => {
-  if (process.browser && document) {
-      return localStorage.clear();
-    } else {
-      console.log("clear local storage  failed");
-    }
-}
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(
+    value
+  )}; expires=${expires}; path=/; Secure; SameSite=Strict`;
+};
 
-export const clearSelectedLocalStorage = (key = "") => {
-  if (process.browser && document) {
-    return localStorage.removeItem(key);
-  } else {
-    console.log("clear local storage  failed");
+// ---- LocalStorage ----
+export const getStorage = (key: string): string | null =>
+  typeof window !== "undefined" ? localStorage.getItem(key) : null;
+
+export const setStorage = (key: string, value: string): void => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, value);
   }
-}
+};
+
+export const clearCookie= () => document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });

@@ -5,6 +5,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useLang } from "@/shared/hooks/language";
 import { Button } from "../button";
+import CustomSelect from "@/components/custom-select"
 
 interface SignupFormProps {
   setIsLogin: (isLogin: boolean) => void;
@@ -13,6 +14,10 @@ interface SignupFormProps {
 const SignupForm = ({ setIsLogin }: SignupFormProps) => {
   const [signupWithPhone, setSignupWithPhone] = useState(false);
   const [locale] = useLang();
+  const userOptions = [
+  { value: "rider", label: "Rider" },
+  { value: "driver", label: "Driver" },
+ ];
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -53,14 +58,15 @@ const SignupForm = ({ setIsLogin }: SignupFormProps) => {
           phone: "", 
           password: "", 
           confirmPassword: "",
-          terms: false
+          terms: false,
+          userType:"rider"
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log("Signup Form Submitted:", values);
         }}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched,setFieldValue }) => (
           <Form className="flex flex-col gap-4">
             {/* Name fields */}
             <div className="grid grid-cols-2 gap-4">
@@ -85,16 +91,14 @@ const SignupForm = ({ setIsLogin }: SignupFormProps) => {
                 error={touched.email && errors.email ? errors.email : ""}
               />
             )}
-            
-            {signupWithPhone && (
-              <Input
-                name="phone"
-                type="tel"
-                placeholder={locale.phone_placeholder || "Phone Number"}
-                error={touched.phone && errors.phone ? errors.phone : ""}
-              />
-            )}
-
+            <CustomSelect
+              name="userType"
+              label="User Type"
+              selectContainer=""
+              options={userOptions}
+              placeholder="Select user type"
+              onChange={(value) => setFieldValue("userType", value)}
+            />
             {/* Password fields */}
             <Input
               name="password"
