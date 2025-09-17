@@ -6,3 +6,6 @@ export const TESTIMONY_2="/images/home-page/close-up-portrait.jpg"
 
 export const DEFAULT_COUNTRY_CODE = "IN";
 export const PREFERRED_COUNTRIES = ["US", "IN", "GB", "CA", "AU", "NZ"];
+
+//will change with actual backend URL
+export const API_BASE_URL="http://localhost:5000/api"
