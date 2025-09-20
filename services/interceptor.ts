@@ -1,12 +1,12 @@
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from "axios";
 import { getCookie, setCookie, clearCookie } from "./cookies-helper";
-
+import {API_BASE_URL} from "@/lib/config"
 interface RefreshResponse {
   accessToken: string;
 }
 
 const api: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || API_BASE_URL,
 });
 
 let isRefreshing = false;
@@ -48,7 +48,7 @@ api.interceptors.response.use(
       try {
         const refreshToken = getCookie("refreshToken");
         const resp = await axios.post<RefreshResponse>(
-          `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/refresh`,
+          `${process.env.NEXT_PUBLIC_API_URL || API_BASE_URL }/auth/refresh`,
           { refreshToken }
         );
 
