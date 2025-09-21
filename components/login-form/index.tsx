@@ -5,7 +5,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useLang } from "@/shared/hooks/language";
 import { Button } from "../button";
-import PhoneInput from "../mobile-input";
 import CustomPhoneInput from "../mobile-input";
 import { DEFAULT_COUNTRY_CODE } from "@/lib/config";
 
