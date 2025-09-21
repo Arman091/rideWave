@@ -4,6 +4,7 @@
 ## Documentation
 - [Project Docs Basic Setup](./docs/setup.md)
 - [cva (class variance authority)](./docs/cva.md)
+- [axios (setup with Interceptor Headers Modification)](./docs/axios-setup.md)
 
 # Project Architecture
 

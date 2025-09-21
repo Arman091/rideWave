@@ -8,4 +8,4 @@ export const DEFAULT_COUNTRY_CODE = "IN";
 export const PREFERRED_COUNTRIES = ["US", "IN", "GB", "CA", "AU", "NZ"];
 
 //will change with actual backend URL
-export const API_BASE_URL="http://localhost:5000/api"
+export const API_BASE_URL="https://5000/api/auth"
